@@ -7,7 +7,7 @@ class Kohana_Auth_LDAP extends Auth
 
     public function __construct($config = array())
     {
-        $options = Kohana::config('zendldap');
+        $options = Kohana::config('ldap');
 
         $this->ldap = new Zend_Ldap($options);
 
