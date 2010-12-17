@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct access allowed.');
 
-class Kohana_Auth_ZendLDAP extends Auth
+class Kohana_Auth_LDAP extends Auth
 {
     // Zend_LDAP instance
     protected $ldap;
@@ -76,4 +76,4 @@ class Kohana_Auth_ZendLDAP extends Auth
 	{
 	    throw new Kohana_Exception('Attempt to call check_password method');
 	}
-} // End Auth OpenLDAP
+} // End Kohana_Auth_LDAP
