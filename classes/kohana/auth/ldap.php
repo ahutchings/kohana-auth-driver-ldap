@@ -49,7 +49,15 @@ class Kohana_Auth_LDAP extends Auth
         }
         catch (Zend_Ldap_Exception $e)
         {
-            throw new Kohana_Exception($e->getMessage());
+            switch ($e->getCode()) {
+                // If the password is incorrect
+                case Zend_Ldap_Exception::LDAP_INVALID_CREDENTIALS:
+                // If the username is not found
+                case Zend_Ldap_Exception::LDAP_NO_SUCH_OBJECT:
+                    return FALSE;
+                default:
+                    throw new Kohana_Exception($e->getMessage());
+            }
         }
 
         return FALSE;
